@@ -45,7 +45,6 @@ jobs:
       # good version.
       - name: Check the member list address is set
         env:
-          name: github-pages
           VITE_MEMBER_LIST_URL: ${{ vars.MEMBER_LIST_URL }}
         run: |
           case "$VITE_MEMBER_LIST_URL" in
@@ -58,7 +57,6 @@ jobs:
 
       - run: pnpm build
         env:
-          name: github-pages
           VITE_MEMBER_LIST_URL: ${{ vars.MEMBER_LIST_URL }}
 
       - uses: actions/configure-pages@v5
