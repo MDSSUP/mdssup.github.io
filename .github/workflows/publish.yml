@@ -1,11 +1,4 @@
-# Builds the app and publishes it to GitHub Pages.
-#
-# Runs by itself on every change to the main branch. It can also be run by
-# hand, with no change at all: Actions tab > Publish > Run workflow. That is
-# the thing to do if the site ever needs putting back up as it was.
-#
-# For this to work, the repository's Settings > Pages > Source must be set to
-# "GitHub Actions". The README explains the rest of the setup.
+
 
 name: Publish
 
