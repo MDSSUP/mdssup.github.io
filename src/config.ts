@@ -30,7 +30,7 @@ function numberSetting(
 // Everyone's device is locked automatically when this value changes.
 export const PASSCODE_HASH = setting(
   import.meta.env.VITE_PASSCODE_HASH,
-  "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
+  "a169d1caf094697643fe308303487e81aa962a03bb533910c382e7093a9fac8b",
 );
 
 // How long the Scan button keeps looking at the camera before giving up.
