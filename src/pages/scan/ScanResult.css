@@ -1,0 +1,45 @@
+/* The result panel in the middle of the scan screen. */
+
+.scan-status {
+  background-color: var(--panel);
+  color: var(--text);
+  border-radius: 4px;
+  padding: 12px 24px;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-height: 60px;
+  border: 6px solid var(--accent, transparent);
+}
+
+.scan-status p {
+  margin: 0;
+  text-align: center;
+}
+
+.scan-student-id {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.scan-name {
+  font-size: 20px;
+}
+
+.scan-verdict {
+  color: var(--accent);
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.scan-detail {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.scan-trouble {
+  color: var(--accent);
+}

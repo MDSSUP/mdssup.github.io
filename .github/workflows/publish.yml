@@ -1,0 +1,82 @@
+# Builds the app and publishes it to GitHub Pages.
+#
+# Runs by itself on every change to the main branch. It can also be run by
+# hand, with no change at all: Actions tab > Publish > Run workflow. That is
+# the thing to do if the site ever needs putting back up as it was.
+#
+# For this to work, the repository's Settings > Pages > Source must be set to
+# "GitHub Actions". The README explains the rest of the setup.
+
+name: Publish
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# What the workflow is allowed to do: read the code, and publish the site.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Two publishes at once would race each other. The later one waits instead.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      # The pnpm version comes from "packageManager" in package.json.
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: pnpm
+
+      # --frozen-lockfile installs exactly what pnpm-lock.yaml lists, so the
+      # published app is built from the same libraries it was tested with.
+      - run: pnpm install --frozen-lockfile
+
+      # The member list's address is kept in the repository's Actions
+      # variables rather than in the code. See MEMBER_LIST_URL in
+      # src/config.ts for why.
+      #
+      # Without it the app would still build, but every phone would fail to
+      # download the list. So stop here instead, and the site stays on its last
+      # good version.
+      - name: Check the member list address is set
+        env:
+          VITE_MEMBER_LIST_URL: ${{ vars.MEMBER_LIST_URL }}
+        run: |
+          case "$VITE_MEMBER_LIST_URL" in
+            https://*) ;;
+            *)
+              echo "::error::The MEMBER_LIST_URL variable is missing, or isn't an https:// address. Set it in Settings > Secrets and variables > Actions > Variables, then run this workflow again."
+              exit 1
+              ;;
+          esac
+
+      - run: pnpm build
+        env:
+          VITE_MEMBER_LIST_URL: ${{ vars.MEMBER_LIST_URL }}
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,30 @@
+.error-container {
+  background-color: var(--panel);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 100%;
+  padding: 24px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.error-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  & .button {
+    background-color: var(--base);
+  }
+}
+
+.error-icon {
+  width: 64px;
+  height: 64px;
+  color: var(--error);
+}

@@ -1,0 +1,17 @@
+/* The "share this app" pop-up. */
+
+.share-qr {
+  width: 100%;
+  max-width: 240px;
+  aspect-ratio: 1;
+  border-radius: 4px;
+}
+
+.share-address {
+  font-family: ui-monospace, monospace;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+  /* The app shell turns text selection off; the address is worth copying. */
+  -webkit-user-select: text;
+  user-select: text;
+}

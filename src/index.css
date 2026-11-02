@@ -1,0 +1,57 @@
+:root {
+  color-scheme: light dark;
+  font-family: system-ui, sans-serif;
+
+  --base: #17181a;
+  --panel: #1f2023;
+  --success: #00b37e;
+  --warning: #fba94c;
+  --error: #f75a68;
+  --text: #e1e1e6;
+  --text-muted: #8d8d99;
+}
+
+#root.dev-build {
+  outline: 2px solid var(--warning);
+  outline-offset: -2px;  
+}
+
+/* The three answers the app gives about a person, as a colour each. */
+.tone-paid {
+  --accent: var(--success);
+}
+
+.tone-caution {
+  --accent: var(--warning);
+}
+
+.tone-refused {
+  --accent: var(--error);
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--base);
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  /* No rubber-band / pull-to-refresh */
+  overscroll-behavior: none;
+  /* Suppress pinch-zoom, double-tap zoom and touch panning on the shell. */
+  touch-action: none;
+}
+
+body {
+  position: fixed;
+  inset: 0;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}

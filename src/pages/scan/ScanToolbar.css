@@ -1,0 +1,11 @@
+/* The row of buttons over the camera picture.*/
+
+.scanner-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.scanner-toolbar > :last-child {
+  margin-left: auto;
+}

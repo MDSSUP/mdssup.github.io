@@ -1,0 +1,33 @@
+<!--
+  The app icon: a student card with a barcode down one side, matching the
+  outline the app draws over the camera.
+
+  This is the source image. The actual icon files (pwa-*.png, favicon.ico and
+  so on) are generated from it by "pnpm icons" — edit this, run that, and
+  commit the result.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <!-- The background. Deliberately a full square with square corners and no
+       transparency: phones round and crop app icons to their own shape, and
+       iPhones put anything see-through onto a white square first, which shows
+       up as an ugly white edge. -->
+  <rect width="512" height="512" fill="#17181a"/>
+
+  <!-- The card outline. -->
+  <rect x="146" y="92" width="220" height="328" rx="24"
+        fill="none" stroke="#e1e1e6" stroke-width="16"/>
+
+  <!-- The photograph, and the two lines of printing under it. -->
+  <g fill="#8d8d99">
+    <rect x="182" y="159" width="96" height="124" rx="8"/>
+    <rect x="182" y="305" width="96" height="16" rx="8"/>
+    <rect x="182" y="337" width="66" height="16" rx="8"/>
+  </g>
+
+  <!-- The barcode. Green, as the app shows a member. -->
+  <g fill="#00b37e">
+    <rect x="296" y="159" width="12" height="194" rx="6"/>
+    <rect x="314" y="159" width="6"  height="194" rx="3"/>
+    <rect x="326" y="159" width="18" height="194" rx="6"/>
+  </g>
+</svg>

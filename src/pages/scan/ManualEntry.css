@@ -1,0 +1,16 @@
+/* The pop-up for typing a student ID in by hand. */
+
+.manual-entry-input {
+  background-color: var(--base);
+  color: var(--text);
+  border: none;
+  border-radius: 4px;
+  padding: 12px;
+  font-size: 24px;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  /* The app shell turns text selection off; text boxes need it back. */
+  -webkit-user-select: text;
+  user-select: text;
+}

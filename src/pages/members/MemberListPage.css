@@ -1,0 +1,67 @@
+/* The member list screen. */
+
+.member-list-search {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--text-muted);
+  border-radius: 4px;
+  padding: 12px;
+  font-size: 18px;
+}
+
+.member-list-matches {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.member-list-rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.member-list-rows li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: baseline;
+  background-color: var(--panel);
+  border-radius: 4px;
+  padding: 8px 12px;
+}
+
+.member-list-who {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+
+  & code {
+    font-weight: bold;
+  }
+
+  & span {
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+}
+
+.member-list-says {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  font-size: 14px;
+
+  & span:last-child:not(:first-child) {
+    color: var(--text-muted);
+  }
+}
+
+.member-list-verdict {
+  color: var(--accent);
+}

@@ -1,0 +1,18 @@
+.error-note {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 8px 0;
+}
+
+.error-note-message {
+  color: var(--warning);
+  margin: 0;
+}
+
+.error-note-hint {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin: 0;
+}

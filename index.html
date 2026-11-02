@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Membership Scanner</title>
+    <meta
+      name="description"
+      content="Scans a student card and checks whether that person is a member."
+    />
+
+    <!-- Keep the app out of search results. See public/robots.txt. -->
+    <meta name="robots" content="noindex, nofollow" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <!-- Matches the app's background, so the phone's toolbars blend in. -->
+    <meta name="theme-color" content="#17181a" />
+
+    <!-- Icons, generated from public/icon.svg by "pnpm icons". -->
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="/icon.svg" sizes="any" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon-180x180.png" />
+
+    <!-- Run without browser chrome once added to the home screen. iPhones
+         read these rather than the web manifest. -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Scanner" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

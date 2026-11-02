@@ -1,0 +1,45 @@
+.scan-log {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.scan-log li {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 12px;
+  align-items: baseline;
+  background-color: var(--panel);
+  border-radius: 4px;
+  padding: 8px 12px;
+}
+
+.scan-log-time {
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  font-size: 14px;
+}
+
+.scan-log-who {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+
+  & code {
+    font-weight: bold;
+  }
+
+  & span {
+    color: var(--text-muted);
+    font-size: 14px;
+  }
+}
+
+.scan-log-outcome {
+  color: var(--accent);
+  font-size: 14px;
+  text-align: right;
+}

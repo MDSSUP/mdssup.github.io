@@ -1,0 +1,31 @@
+# Asks search engines and AI crawlers to leave this app out.
+#
+# This is a request, not a lock. Well-behaved crawlers follow it; nothing
+# forces anyone to. It keeps the app out of search results and training data,
+# which matters because the app's code holds the address of the member list.
+#
+# Ordinary search engines may read the page itself, so that they see the
+# "noindex" in index.html and keep it out of their results. They may not read
+# the app's code, in /assets/.
+#
+# AI crawlers may read nothing. The list names the well-known ones as of 2026;
+# new ones appear, and adding a name here is all it takes.
+
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: anthropic-ai
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: PerplexityBot
+User-agent: CCBot
+User-agent: Bytespider
+User-agent: Meta-ExternalAgent
+User-agent: Amazonbot
+Disallow: /
+
+User-agent: *
+Disallow: /assets/

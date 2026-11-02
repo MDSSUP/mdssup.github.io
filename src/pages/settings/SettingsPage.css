@@ -1,0 +1,46 @@
+/* The settings screen. */
+
+.settings-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.settings-stale {
+  color: var(--warning);
+}
+
+.settings-concerns {
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.settings-concerns-count {
+  color: var(--warning);
+  cursor: pointer;
+  padding: 4px 0;
+}
+
+.settings-concerns-list {
+  margin: 8px 0 0;
+  padding-left: 20px;
+  opacity: 0.75;
+
+  & > li {
+    margin-bottom: 10px;
+  }
+}
+
+.settings-concern-hint {
+  margin: 4px 0 0;
+  font-size: 13px;
+  font-style: italic;
+}
+
+.settings-concern-examples {
+  margin: 4px 0 0;
+  padding-left: 18px;
+  font-family: monospace;
+  font-size: 13px;
+  list-style: square;
+}

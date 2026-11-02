@@ -1,0 +1,48 @@
+/* A pop-up over whatever screen is showing — see Modal.tsx. */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  background-color: rgb(0 0 0 / 60%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.modal {
+  background-color: var(--panel);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 24px;
+  width: 100%;
+  max-width: 320px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  /* A tall modal scrolls rather than running off the screen. */
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.modal-title {
+  margin: 0;
+  font-size: 20px;
+}
+
+.modal p {
+  margin: 0;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* The buttons along the bottom. They are ModalAction, which is what shares the
+   width between them - see components/Button.css. */
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}

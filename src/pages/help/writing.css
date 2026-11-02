@@ -1,0 +1,159 @@
+/* The pieces for writing a help page — see writing.tsx. */
+
+/* A link drawn as a piece of the writing rather than as a button. */
+.button-link {
+  color: var(--text);
+  text-decoration: underline;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+/* An icon in a line of writing, at the size of the writing around it. */
+.help-icon {
+  width: 1.1em;
+  height: 1.1em;
+  /* Sit on the writing's own line rather than on the line below it. */
+  vertical-align: -0.2em;
+}
+
+/* A picture of one of the app's buttons. It takes its colour and its corners
+   from .button in Button.css, so it follows the real buttons if those change;
+   what is set here is only what makes it small enough to sit in a sentence. */
+.help-app-button {
+  padding: 2px 8px;
+  font-size: inherit;
+  gap: 4px;
+  /* It is a picture of a button, not a button. */
+  cursor: default;
+  white-space: nowrap;
+
+  /* Beats the 20px .button svg sets for the real thing. */
+  & .help-icon {
+    width: 1.1em;
+    height: 1.1em;
+    vertical-align: baseline;
+  }
+}
+
+/* A table with a hidden explanation under each row — see HelpTable in
+   writing.tsx. */
+
+/* Holds the sideways scrolling, so a wide table never widens the page. The
+   touch-action is needed because the body suppresses panning; without it a
+   finger can't drag the table across. */
+.help-table-scroll {
+  overflow-x: auto;
+  margin-bottom: 12px;
+  touch-action: pan-x pan-y;
+}
+
+.help-table {
+  /* One line between cells rather than two side by side. */
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 15px;
+  color: var(--text-muted);
+  text-align: left;
+}
+
+.help-table th {
+  color: var(--text);
+  font-size: 13px;
+  /* Headings read as labels for the columns rather than as writing. */
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 8px 8px;
+  border-bottom: 2px solid var(--panel);
+  white-space: nowrap;
+}
+
+.help-table td {
+  padding: 8px 8px;
+  border-bottom: 1px solid var(--panel);
+  vertical-align: top;
+  /* Long writing wraps inside its column instead of widening the table, and
+     a word with no space in it — "App won't open/Blank screen" — is broken
+     rather than allowed to push the table off the side of a phone. */
+  overflow-wrap: break-word;
+}
+
+/* The first column names the thing each row is about, so it is given the
+   weight of a heading. The strip an arrow opens is skipped: its one cell is
+   a first cell too, but it is writing rather than a column heading. */
+.help-table tr:not(.help-row-details) td:first-child {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* Every other row is shaded, counting the rows you wrote — the strip an
+   arrow opens is shaded with the row it belongs to rather than as a row in
+   its own right. */
+.help-row:nth-of-type(odd) {
+  background-color: var(--panel);
+}
+
+/* The first cell of a row that has an explanation to show: the name of the
+   row, with the arrow after it. It fills its cell so that the whole cell is
+   the target, which matters on a phone. */
+.help-row-arrow {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  /* The cell is already the colour and weight this wants, so it takes both
+     from there rather than naming them again. */
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  width: 100%;
+  /* The arrow sits after the name and stays on the name's last line, rather
+     than dropping below it when the name wraps. */
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+
+  &:hover {
+    color: var(--text-muted);
+  }
+
+  /* Points down when the strip is closed and up when it is open. */
+  & .turned {
+    transform: rotate(180deg);
+  }
+
+  & .help-icon {
+    vertical-align: baseline;
+    transition: transform 150ms ease;
+    /* Quieter than the name it follows, and never squeezed by it. */
+    color: var(--text-muted);
+    flex-shrink: 0;
+  }
+}
+
+/* The strip under a row, holding the longer explanation. */
+.help-row-details td {
+  /* Lines up with the writing in the row above it. */
+  padding: 0 8px 12px;
+  border-bottom: 1px solid var(--panel);
+}
+
+/* Written as .help-row-details td p rather than .help-row-details p so that
+   it beats the spacing Page.css gives paragraphs, whichever order the two
+   stylesheets happen to load in. */
+.help-row-details td p {
+  margin: 0 0 8px;
+}
+
+.help-row-details > td > :last-child {
+  margin-bottom: 0;
+}
+

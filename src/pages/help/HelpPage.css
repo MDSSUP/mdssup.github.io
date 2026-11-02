@@ -1,0 +1,61 @@
+/* The help page — see HelpPage.tsx.
+ *
+ * The writing on a help page is plain HTML, written by whoever added the page,
+ * so the shape of it is set here rather than by a component of its own. This
+ * is the same exception Page.css already makes for paragraphs: the alternative
+ * is a wrapper around every <p> whose only job is to add a class.
+ *
+ * The pieces that aren't plain HTML — links between pages, pictures of the
+ * app's buttons — bring their own styling. See help/writing.css. */
+
+.help-body {
+  /* The spacing inside a page's writing comes from the margins below, not
+     from the gap .page-content puts between the blocks of a page. */
+  display: block;
+}
+
+.help-body h3 {
+  font-size: 16px;
+  margin: 16px 0 8px;
+}
+
+.help-body ul {
+  margin: 0 0 12px;
+  padding-left: 20px;
+  color: var(--text-muted);
+}
+
+.help-body li {
+  margin-bottom: 4px;
+}
+
+.help-body pre {
+  background-color: var(--panel);
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin: 0 0 12px;
+  overflow-x: auto;
+  font-size: 14px;
+}
+
+.help-body a {
+  color: var(--text);
+}
+
+/* Nothing hangs off the bottom: the space under the last thing on a page
+   would be doubled by the gap .page-content already leaves. */
+.help-body > :last-child {
+  margin-bottom: 0;
+}
+
+/* The lists of topics, on the front of the help page and at the foot of a
+   category. These are navigation rather than writing, so they are not
+   quietened the way the writing is. */
+.help-topic-list {
+  margin: 0;
+  padding-left: 20px;
+
+  & li {
+    margin-bottom: 4px;
+  }
+}
