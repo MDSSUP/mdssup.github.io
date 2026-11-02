@@ -4,7 +4,7 @@ name: Publish
 
 on:
   push:
-    branches: [main]
+    branches: [master]
   workflow_dispatch:
 
 # What the workflow is allowed to do: read the code, and publish the site.
